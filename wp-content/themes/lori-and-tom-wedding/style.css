@@ -85,7 +85,8 @@ a {
 abbr[title] {
   border-bottom: none; /* 1 */
   text-decoration: underline; /* 2 */
-  text-decoration: underline dotted; /* 2 */
+  -webkit-text-decoration: underline dotted;
+          text-decoration: underline dotted; /* 2 */
 }
 
 /**
@@ -356,7 +357,11 @@ template {
 
     display: block;
     box-sizing: border-box;
-    user-select: none;
+
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
 
     -webkit-touch-callout: none;
     -khtml-user-select: none;
@@ -389,7 +394,8 @@ template {
 .slick-slider .slick-track,
 .slick-slider .slick-list
 {
-    transform: translate3d(0, 0, 0);
+    -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
 }
 
 .slick-track
@@ -481,51 +487,19 @@ $mainBlue: #0D3B66;
 $lightOrange: #EE964B;
 $darkOrange: #F95738; */
 
-/* @define-mixin atSmall {
-  @media (min-width: 530px) {
-    @mixin-content;
-  }
-}
-
-@define-mixin atSmallMedium {
-  @media (min-width: 767px) {
-    @mixin-content;
-  }
-}
-
-@define-mixin atMedium {
-  @media (min-width: 960px) {
-    @mixin-content;
-  }
-}
-
-body {
-  color: #333;
-  font-family: 'Roboto', sans-serif;
-  overflow-x: hidden;
-  position: relative;
-}
-
-img {
-  max-width: 100%;
-  height: auto;
+:root {
+    --primary-color: #9cff9f;
+    --bronze: #a35c00;
+    --main-font:  'Qwigley', cursive;
 }
 
 a {
-  color: $mainBlue;
-}
-
-a:hover {
   text-decoration: none;
 }
 
-p, ul, ol {
-  margin: 0 0 1.65em 0;
+* {
+  font-family: var(--main-font);
 }
-
-p, li {
-  line-height: 1.65;
-} */
 
 /* .container {
   max-width: 1300px;
@@ -624,6 +598,29 @@ p, li {
 
 .generic-content h6 {font-size: 1.15rem}
 
+html {
+  box-sizing: border-box;
+  font-size: 20px;
+  font-weight: 200;
+}
+
+body {
+  margin: 0;
+  min-height: 100%;
+  position: relative;
+
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+.flex-cont-x {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
 .photo-upload {
   border:  solid 3px pink;
 }
@@ -641,6 +638,193 @@ margin: 20px 0;
  max-width: inherit !important;
 }
 
-* {
-	color: red;
+/* 
+ *Navigation
+ */
+
+.nav-container {
+	display: flex;
+	width: 100%;
+	background-color: var(--primary-color);
+	position: fixed;	
+	z-index: 999;
+}
+
+.nav-list {
+	display: flex;
+	list-style-type: none;
+	width: 100%;
+	margin: 2px;
+	padding: 0;
+}
+
+.nav-list li {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    transition: 0.2s;
+}
+
+.nav-list li:hover {
+	background-color: white;
+}
+
+.nav-list li a {
+	text-align: center;
+	color: var(--bronze);
+    font-size: 45px;
+    font-weight: 800;
+    text-shadow: 1px 1px 4px wheat;
+}
+
+/* 
+ * HOMEPAGE STYLING
+ *
+ * Not logged in
+ */
+
+.site-container {
+    display: flex;
+    height: 100vh;
+    background-image: url(images/bunting.png), url(images/paper.png);
+    background-position: top;
+    background-repeat: repeat-x, repeat;
+    align-items: center;
+    justify-content: center;
+}
+
+.sign-up-form-container {
+  font-size: 35px;
+}
+
+#loginform {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgba(130, 130, 130, 0.73);
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 3px 3px 7px rgb(163, 163, 163);
+    color: white;
+}
+
+#loginform > * {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin: 7px;
+}
+
+#loginform > * > *{
+  text-align: center;
+}
+
+/* 
+ *Logged in
+ */
+
+.flex-cont-x > * {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+  flex: 1;
+  color: var(--bronze);
+  font-size: 47px;
+}
+
+.outer-frame {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 80%;
+	height: 400px;
+	background-color: var(--primary-color);
+}
+
+.inner-frame {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+	width: 99%;
+	height: 99%;
+	background-color: var(--bronze);
+}
+
+.rotate-left {
+  -webkit-transform: rotate(-5deg);
+          transform: rotate(-5deg);
+}
+
+.rotate-right {
+  -webkit-transform:  rotate(3deg);
+          transform:  rotate(3deg);
+}
+
+.kid-photo {
+  width: 98%;
+  height: 98%;
+  background-color: burlywood;
+  background-position: center center;
+  background-size: cover;
+  border: 6px double;
+}
+
+.counter-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.counter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1 1 33.33333%;
+  margin: 30px;
+  padding: 18px;
+  font-size: 150px;
+  background: var(--primary-color);
+  color: var(--bronze);
+}
+
+/*
+ *	Gallery Styling
+ */
+
+.upload-form {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.upload-form-container {
+	background: rgba(130, 130, 130, 0.73);
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 3px 3px 7px rgb(163, 163, 163);
+    color: white;
+}
+
+#gallery-file-upload {
+	display: none;
+}
+
+.file-upload-custom {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+
+.upload-form label, .upload-form input {
+	background-color: white;
+	color: var(--bronze);
+	font-size: 40px;
+	font-weight: 800
 }

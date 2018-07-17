@@ -93,18 +93,6 @@ eval("var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPAC
 
 /***/ }),
 
-/***/ "./wp-content/themes/lori-and-tom-wedding/js/modules/frontEndUpload.js":
-/*!*****************************************************************************!*\
-  !*** ./wp-content/themes/lori-and-tom-wedding/js/modules/frontEndUpload.js ***!
-  \*****************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nexports.default = void 0;\n\nvar _jquery = _interopRequireDefault(__webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\"));\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nfunction _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError(\"Cannot call a class as a function\"); } }\n\nfunction _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if (\"value\" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }\n\nfunction _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }\n\nvar frontEndUpload =\n/*#__PURE__*/\nfunction () {\n  function frontEndUpload() {\n    _classCallCheck(this, frontEndUpload);\n\n    this.events();\n  }\n\n  _createClass(frontEndUpload, [{\n    key: \"events\",\n    value: function events() {\n      (0, _jquery.default)(\".photo-upload\").on(\"click\", this.tester);\n    }\n  }, {\n    key: \"tester\",\n    value: function tester() {\n      var image = (0, _jquery.default)('.photo-select');\n      console.log(image);\n    }\n  }, {\n    key: \"uploadImage\",\n    value: function uploadImage() {\n      var title = (0, _jquery.default)('.photo-input').val();\n      var form = new FormData();\n      var image = (0, _jquery.default)('.photo-select')[0].files[0]; //We have only one file and this is how we get it\n\n      form.append('image', image);\n      form.append('title', title);\n\n      _jquery.default.ajax({\n        beforeSend: function beforeSend(xhr) {\n          xhr.setRequestHeader('X-WP-Nonce', themeData.nonce);\n        },\n        url: themeData.root_url + '/wp-json/wp/v2/gallery/',\n        type: 'POST',\n        data: form,\n        processData: false,\n        //Very important\n        contentType: false,\n        //Very important\n        success: function success(response) {\n          console.log(response);\n        },\n        error: function error(response) {\n          console.log(response);\n        }\n      });\n    }\n  }]);\n\n  return frontEndUpload;\n}();\n\nvar _default = frontEndUpload;\nexports.default = _default;\n\n//# sourceURL=webpack:///./wp-content/themes/lori-and-tom-wedding/js/modules/frontEndUpload.js?");
-
-/***/ }),
-
 /***/ "./wp-content/themes/lori-and-tom-wedding/js/scripts.js":
 /*!**************************************************************!*\
   !*** ./wp-content/themes/lori-and-tom-wedding/js/scripts.js ***!
@@ -113,7 +101,7 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nvar _jquery = _interopRequireDefault(__webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\"));\n\nvar _slickCarousel = _interopRequireDefault(__webpack_require__(/*! slick-carousel */ \"./node_modules/slick-carousel/slick/slick.js\"));\n\nvar _frontEndUpload = _interopRequireDefault(__webpack_require__(/*! ./modules/frontEndUpload */ \"./wp-content/themes/lori-and-tom-wedding/js/modules/frontEndUpload.js\"));\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\n// 3rd party packages from NPM\n// Our modules / classes\n\n/*import GoogleMap from './modules/GoogleMap';*/\n// Instantiate a new object using our modules/classes\n\n/*var googleMap = new GoogleMap();*/\nvar gallery = new _frontEndUpload.default();\n\n//# sourceURL=webpack:///./wp-content/themes/lori-and-tom-wedding/js/scripts.js?");
+eval("\n\nvar _jquery = _interopRequireDefault(__webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\"));\n\nvar _slickCarousel = _interopRequireDefault(__webpack_require__(/*! slick-carousel */ \"./node_modules/slick-carousel/slick/slick.js\"));\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\n//# sourceURL=webpack:///./wp-content/themes/lori-and-tom-wedding/js/scripts.js?");
 
 /***/ })
 

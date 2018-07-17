@@ -5,6 +5,7 @@ function custom_post_types() {
 		'capability_type' => 'gallery',
 		'map_meta_cap' => true,
 		'show_in_rest' => true,
+		'has_archive' => true,
 		'supports' => array('title', 'editor'),
 		'public' => true,
 		'show_ui' => true,

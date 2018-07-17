@@ -1,0 +1,40 @@
+/* 
+ *Navigation
+ */
+
+.nav-container {
+	display: flex;
+	width: 100%;
+	background-color: var(--primary-color);
+	position: fixed;	
+	z-index: 999;
+}
+
+.nav-list {
+	display: flex;
+	list-style-type: none;
+	width: 100%;
+	margin: 2px;
+	padding: 0;
+}
+	
+.nav-list li {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    transition: 0.2s;
+}
+
+.nav-list li:hover {
+	background-color: white;
+}
+
+.nav-list li a {
+	text-align: center;
+	color: var(--bronze);
+    font-size: 45px;
+    font-weight: 800;
+    text-shadow: 1px 1px 4px wheat;
+}
