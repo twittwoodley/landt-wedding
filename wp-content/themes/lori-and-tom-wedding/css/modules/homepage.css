@@ -5,8 +5,9 @@
  */
 
 
-.site-container {
+.content-wrapper {
     display: flex;
+    flex-direction: column;
     height: 100vh;
     background-image: url(images/bunting.png), url(images/paper.png);
     background-position: top;
@@ -89,7 +90,7 @@
   background-color: burlywood;
   background-position: center center;
   background-size: cover;
-  border: 6px double;
+  border: 4px inset rgba(255, 255, 255, 0.2);;
 }
 
 .counter-container {
@@ -100,12 +101,13 @@
 
 .counter {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  flex: 1 1 33.33333%;
-  margin: 30px;
-  padding: 18px;
-  font-size: 150px;
-  background: var(--primary-color);
-  color: var(--bronze);
+    justify-content: center;
+    align-items: center;
+    flex: 1 1 33.33333%;
+    margin: 30px;
+    padding: 0 18px;
+    font-size: 140px;
+    background: var(--primary-color);
+    color: var(--bronze);
+    border: 6px inset var(--primary-color);
 }

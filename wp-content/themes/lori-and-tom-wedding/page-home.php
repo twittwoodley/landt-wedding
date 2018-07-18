@@ -12,7 +12,7 @@ $remaining = floor($wedding / 86400);
 $remArray = str_split(strval($remaining));
 ?>
 
-	<div class="site-container">
+	<div class="content-wrapper">
 		<div class="flex-cont-x">
 			<div>
 				<div class="outer-frame rotate-left">
@@ -39,6 +39,36 @@ $remArray = str_split(strval($remaining));
 		</div>
 	
 
+
+<div class="gallery-container">
 <?php 
+//Get gallery images URL
+$query_images_args = array(
+    'post_type'      => 'attachment',
+    'post_mime_type' => 'image',
+    'post_status'    => 'inherit',
+    'posts_per_page' => - 1,
+);
+
+$query_images = new WP_Query( $query_images_args );
+
+$images = array();
+foreach ( $query_images->posts as $image ) {
+    $images[] = wp_get_attachment_url( $image->ID );
+}
+
+foreach ($images as $image){
+	?>
+		<div class="gallery-image-thumb" style="background-image: url(<?php echo $image ?>)">
+			<div class="gallery-thumb-overlay">
+				<div><i class="fa fa-heart"></i><span>3</span></div>
+				<a href="<?php echo $image ?>" download><i class="fa fa-download"></i></a>
+			</div>
+		</div>
+	<?php
+} ?>
+
+</div>
+<?php
 get_footer(); 
 ?>

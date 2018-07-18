@@ -2,10 +2,12 @@
     --primary-color: #9cff9f;
     --bronze: #a35c00;
     --main-font:  'Qwigley', cursive;
+    --light-pink: #ffadd3;
 }
 
 a {
   text-decoration: none;
+      color: inherit;
 }
 
 * {

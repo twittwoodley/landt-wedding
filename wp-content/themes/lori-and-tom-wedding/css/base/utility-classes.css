@@ -64,3 +64,10 @@
 .hide {
   display: none;
 } */
+
+.site-wrapper {
+  top: 0;
+    position: absolute;
+    width: 100%;
+
+}

@@ -1,14 +1,16 @@
-	</div> <!-- Site container closing div -->
+	</div> <!-- content wrapper closing div -->
+	<footer>
+	</footer>
+</div><!-- site wrapper closing div -->
 </body>
 <script>
 
 (function() {
 nav = document.querySelector('.nav-container');
-container = document.querySelector(".site-container");
+container = document.querySelector(".content-wrapper");
 
-container.style.backgroundPosition= '0 ' + nav.offsetHeight + 'px';
+container.style.marginTop= nav.offsetHeight + 'px';
 
-document.getElementById("uploadForm").reset();
 })();
 
 </script>

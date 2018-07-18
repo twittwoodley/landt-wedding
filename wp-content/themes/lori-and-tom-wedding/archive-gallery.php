@@ -7,7 +7,7 @@
     get_template_part('template-parts/content', 'navigation');
 
 	?>
-  <div class="site-container">
+  <div class="content-wrapper">
 
 <div class="sign-up-form-container upload-form-container">
   <h2>Add Photos</h2>
@@ -29,7 +29,9 @@ if( 'POST' == $_SERVER['REQUEST_METHOD']  ) {
 if ( $_FILES ) { 
     $files = $_FILES["kv_multiple_attachments"];
     if (count($files['name']) > 15) {
-    	die('You can only upload 15 files');
+      die('<div class="error-msg">Sorry, You can only upload 15 files <br>
+          <label for="gallery-file-upload" class="file-reupload-btn">Reselect files</label>
+        </div>');
     }
     foreach ($files['name'] as $key => $value) {      
         if ($files['name'][$key]) { 
@@ -45,17 +47,23 @@ if ( $_FILES ) {
             $newupload = kv_handle_attachment($file,$pid); 
           } 
         } 
-      } 
+              } 
+
     }
 }
 
+?>
+  <h2>Your Photos</h2>
 
+<div class="gallery-container">
+<?php 
 //Get gallery images URL
 $query_images_args = array(
     'post_type'      => 'attachment',
     'post_mime_type' => 'image',
     'post_status'    => 'inherit',
     'posts_per_page' => - 1,
+    'author' => get_current_user_id()
 );
 
 $query_images = new WP_Query( $query_images_args );
@@ -64,6 +72,20 @@ $images = array();
 foreach ( $query_images->posts as $image ) {
     $images[] = wp_get_attachment_url( $image->ID );
 }
+
+foreach ($images as $image){
+  ?>
+    <div class="gallery-image-thumb" style="background-image: url(<?php echo $image ?>)">
+      <div class="gallery-thumb-overlay">
+        <div><i class="fa fa-heart"></i><span>3</span></div>
+        <a href="<?php echo $image ?>" download><i class="fa fa-download"></i></a>
+      </div>
+    </div>
+  <?php
+} ?>
+
+
+<?php
  get_footer(); ?>
 <script>
 

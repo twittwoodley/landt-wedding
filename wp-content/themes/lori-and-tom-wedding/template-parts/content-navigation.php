@@ -1,3 +1,4 @@
+<div class="site-wrapper">
 <nav class="nav-container">
 	<ul class="nav-list">
 		<li><a href="#">Home</a></li>
