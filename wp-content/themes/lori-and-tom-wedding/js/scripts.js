@@ -9,9 +9,11 @@ import slick from 'slick-carousel';
 /*import frontEndUpload from './modules/frontEndUpload';
 */
 
-
+import Like from './modules/Like';
 
 // Instantiate a new object using our modules/classes
 
 /*var googleMap = new GoogleMap();*/
 /*var gallery = new frontEndUpload();*/
+
+var like = new Like();

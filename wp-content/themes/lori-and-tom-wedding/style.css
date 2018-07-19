@@ -899,3 +899,37 @@ font-size: 40px;
     flex:1 1 25%;
     flex-wrap:wrap;
 }
+
+/*
+ * Like Box CSS
+*/
+
+.like-count {
+  padding-left: 49px;
+}
+
+.like-box .heart-empty {
+  transition: all .35s ease-out;
+  position: absolute;
+}
+
+.like-box .heart-filled {
+  transition: all .4s ease-out;
+  position: absolute;
+  visibility: hidden;
+  -webkit-transform: scale(.2);
+          transform: scale(.2);
+  opacity: 0;
+}
+
+.like-box[data-exists="yes"] .heart-filled {
+  -webkit-transform: scale(1);
+          transform: scale(1);
+  visibility: visible;
+  opacity: 1;
+}
+
+.like-box[data-exists="yes"] .heart-empty {
+  visibility: hidden;
+  opacity: 0;
+}
