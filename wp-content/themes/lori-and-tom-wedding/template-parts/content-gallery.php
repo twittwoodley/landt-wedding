@@ -60,7 +60,7 @@ foreach ($images as $image){
 					<i class="fas fa-heart heart-filled" aria-hidden="true"></i>
 					<span class="like-count"><?php echo $likeCount->found_posts ?></span>
 				</div>
-				<a href="<?php echo $image ?>" download><i class="fa fa-download"></i></a>
+				<a href="<?php echo $image[0] ?>" download><i class="fa fa-download"></i></a>
 			</div>
 		</div>
 	<?php
