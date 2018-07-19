@@ -42,10 +42,7 @@ function createLike($data) {
 			)
 		));
 
-	} else {
-		die('Sorry, this photo does not exist');
-	}
-
+	} 
 
 	} else {
 		die("Only logged in users can like photos");

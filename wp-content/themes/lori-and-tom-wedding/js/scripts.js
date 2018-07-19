@@ -10,6 +10,7 @@ import slick from 'slick-carousel';
 */
 
 import Like from './modules/Like';
+import DeleteImage from './modules/DeleteImage';
 
 // Instantiate a new object using our modules/classes
 
@@ -17,3 +18,4 @@ import Like from './modules/Like';
 /*var gallery = new frontEndUpload();*/
 
 var like = new Like();
+var deleteImage = new DeleteImage();

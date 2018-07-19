@@ -1,6 +1,7 @@
 <?php
 
 require get_theme_file_path('/inc/like-route.php');
+require get_theme_file_path('/inc/delete-image.php');
 
 function files_and_scripts() {
 	wp_enqueue_style('custom-google-font', '//fonts.googleapis.com/css?family=Qwigley'); //Google Font

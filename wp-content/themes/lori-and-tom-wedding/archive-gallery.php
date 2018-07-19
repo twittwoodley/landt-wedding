@@ -70,22 +70,26 @@ $query_images = new WP_Query( $query_images_args );
 
 $images = array();
 foreach ( $query_images->posts as $image ) {
-    $images[] = wp_get_attachment_url( $image->ID );
+    array_push($images, array(wp_get_attachment_url( $image->ID ), $image->ID));
+
 }
+
 
 foreach ($images as $image){
   ?>
-    <div class="gallery-image-thumb" style="background-image: url(<?php echo $image ?>)">
+    <div class="gallery-image-thumb" data-id="<?php echo $image[1]; ?>" style="background-image: url(<?php echo $image[0]; ?>)">
       <div class="gallery-thumb-overlay">
-        <div><i class="fa fa-heart"></i><span>3</span></div>
-        <a href="<?php echo $image ?>" download><i class="fa fa-download"></i></a>
+        <span class="delete-image"><i class="fa fa-times"></i>Delete</span>
       </div>
     </div>
   <?php
 } ?>
+</div>
 
-
+<h2>All Photos</h2>
 <?php
+  get_template_part('template-parts/content', 'gallery');
+
  get_footer(); ?>
 <script>
 
