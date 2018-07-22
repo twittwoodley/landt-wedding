@@ -28,26 +28,50 @@ get_template_part('template-parts/content', 'navigation');
 					$questions->the_post();
 					$date = get_the_date('D M y');
 					?>
-					<li data-id="<?php echo get_the_ID(); ?>">
+					<li class="question-li" data-id="<?php echo get_the_ID(); ?>">
 						<div class="question-wrap">
-							<input readonly value="<?php echo esc_attr(get_the_title()); ?>" class="question-field">
+							<h4 class="question-field"><?php echo esc_attr(get_the_title()); ?></h4>
 								<div class="question-reply-and-buttons">
 									<div class="reply-input-cont">
 										<input class="reply-input">
 										<span class="submit-reply">Submit</span>
 									</div>
 									<div class="question-buttons">
-										<span class="reply-question"><i class="fa fa-reply" aria-hidden="true"></i></span>
-										<span class="edit-question"><i class="fa fa-edit" aria-hidden="true"></i></span>
-										<span class="delete-question"><i class="fa fa-trash-alt" aria-hidden="true"></i></span>
-										<span class="save-question"><i class="fa fa-upload" aria-hidden="true"></i></span>
+										<div class="reply-button-cont">
+											<span class="reply-question"><i class="fa fa-reply" aria-hidden="true"></i></span>
+											<span class="button-desc">
+											 	<div class="arrow-notch"></div>
+											 	<p class="desc-text">Reply</p>
+											</span>
+										</div>
+										<div class="edit-button-cont">
+											<span class="edit-question"><i class="fa fa-edit" aria-hidden="true"></i></span>
+											<span class="button-desc">
+											 	<div class="arrow-notch"></div>
+											 	<p class="desc-text edit-cancel-text">Edit</p>
+											</span>
+										</div>
+										<div class="delete-button-cont">
+											<span class="delete-question"><i class="fa fa-trash-alt" aria-hidden="true"></i></span>
+											<span class="button-desc">
+											 	<div class="arrow-notch"></div>
+											 	<p class="desc-text">Delete</p>
+											</span>
+										</div>
+										<div class="save-button-cont">
+											<span class="save-question"><i class="fa fa-upload" aria-hidden="true"></i></span>
+											<span class="button-desc">
+											 	<div class="arrow-notch"></div>
+											 	<p class="desc-text">Save</p>
+											</span>
+										</div>
 								</div>
 							</div>
 						</div>
 						<span class="question-meta reply-meta">From <?php the_author(); ?> on <?php echo $date?></span>
 						
 
-						<ul>
+						<ul class="reply-ul">
 						<?php
 							$replies = new WP_Query(array(
 								'post_type' => 'question',
@@ -59,9 +83,36 @@ get_template_part('template-parts/content', 'navigation');
 								$replies->the_post();
 								$date = get_the_date('D M y');
 								?>
-								<li class="reply-container">
-									<input class="reply-text" value="<?php the_title(); ?>">
+								<li class="question-li reply-container" data-id="<?php echo get_the_ID(); ?>">
+									<!-- <input class="reply-text" value="<?php the_title(); ?>"> -->
+									<p class="reply-text"><?php the_title(); ?></p>
+									<div class="question-buttons reply-buttons">
+										
+										<div class="edit-button-cont">
+											<span class="edit-reply"><i class="fa fa-edit" aria-hidden="true"></i></span>
+											<span class="button-desc">
+											 	<div class="arrow-notch"></div>
+											 	<p class="desc-text edit-cancel-text">Edit</p>
+											</span>
+										</div>
+										<div class="delete-button-cont">
+											<span class="delete-reply"><i class="fa fa-trash-alt" aria-hidden="true"></i></span>
+											<span class="button-desc">
+											 	<div class="arrow-notch"></div>
+											 	<p class="desc-text">Delete</p>
+											</span>
+										</div>
+										<div class="save-button-cont">
+											<span class="save-reply"><i class="fa fa-upload" aria-hidden="true"></i></span>
+											<span class="button-desc">
+											 	<div class="arrow-notch"></div>
+											 	<p class="desc-text">Save</p>
+											</span>
+
+										</div>
+									</div>
 									<span class="reply-meta">From <?php the_author(); ?> on <?php echo $date; ?></span>
+									<hr>
 								</li>
 								<?php }
 						?>
