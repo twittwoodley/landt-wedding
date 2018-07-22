@@ -1,0 +1,171 @@
+/*
+ * Question CSS
+*/
+
+.questions-container {
+	font-size: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    max-width: 900px;
+}
+
+.create-question {
+	background: rgba(1,1,1, 0.5);
+    padding: 20px;
+    border-radius: 13px;
+    box-shadow: 3px 3px 5px rgba(1,1,1,0.3);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 250px;
+    width: 100%;
+}
+
+.new-question-input {
+	width: 100%;
+}
+
+.submit-question {
+	background: var(--light-pink);
+    padding: 4px 10px;
+    margin: 10px;
+    border-radius: 10px;
+    border: 2px solid white;
+}
+
+.questions {
+	display: flex;
+    flex-direction: column;
+    background: white;
+    padding: 23px;
+    list-style-type: none;
+    width: 100%;
+    border-radius: 13px;
+    box-shadow: 3px 3px 5px rgba(1,1,1,0.3);
+}
+
+.questions li {
+	flex-direction: column;
+    display: flex;
+/*    align-items: center;
+*/}
+
+.question-wrap {
+    width: 94%;
+    display: flex;
+    /* justify-content: space-between; */
+    align-items: center;
+    margin-bottom: 12px;
+    flex-direction: column;
+}
+
+.question-break {
+	height: 1px;
+    border: none;
+    width: 90%;
+    align-self: flex-start;
+    background-color: var(--bronze);
+    left: 0;
+    box-shadow: 1px 1px 7px rgba(1,1,1,0.5);
+}
+
+.question-field {
+	background: none;
+    border: none;
+    font-size: 56px;
+    height: 68px;
+    width: 86%;
+}
+
+
+.edit-question-active {
+	border: 1px solid hotpink;
+}
+
+.question-reply-and-buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+}
+
+.reply-question {
+	/*align-self: flex-start;*/
+}
+
+.question-buttons {
+    display: flex;
+    flex-direction: row;
+    font-size: 25px;
+    align-self: flex-end;
+    flex: 0 0 14%;
+}
+
+.question-buttons span {
+	margin: 5px 5px;
+}
+
+.question-buttons span:hover {
+	cursor: pointer;
+}
+
+.save-question {
+	display: none
+}
+
+.save-question-visible {
+	display: block;
+}
+
+
+/* Reply */
+
+.reply-container {
+	margin-left: 10%;
+    /* background: rgba(1,1,1,0.15); */
+    width: 81%;
+    /* border-bottom: solid 1px #cfcfcf; */
+    margin-bottom: 15px;
+}
+
+.reply-text {
+	background: none;
+    border: none;
+    border-bottom: 1px solid white;
+    padding: 5px;
+    height: 49px;
+    border-left: 3px solid;
+}
+
+.reply-input-cont {
+    flex: 2 1 70%;
+    visibility: hidden;
+}
+
+.show-reply-cont {
+    visibility: visible;
+}
+
+.reply-meta {
+    font-family: monospace;
+    font-size: 13px;
+    color: #cfcfcf;
+}
+
+.question-meta {
+	margin-left: 5%;
+}
+
+.reply-input {
+    width: 80%;
+}
+
+.submit-reply {
+    background: var(--light-pink);
+    padding: 4px 10px;
+    margin: 10px;
+    border-radius: 10px;
+    border: 2px solid white;    
+}

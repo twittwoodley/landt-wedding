@@ -12,8 +12,8 @@ $query_images = new WP_Query( $query_images_args );
 
 $images = array();
 foreach ( $query_images->posts as $image ) {
-    array_push($images, array(wp_get_attachment_url( $image->ID ), $image->ID));
-
+	//$author = get_the_author($image->ID);
+    array_push($images, array(wp_get_attachment_url( $image->ID ), $image->ID, get_the_author_meta('display_name' ,$image->post_author)));
 }
 
 foreach ($images as $image){
@@ -54,7 +54,7 @@ foreach ($images as $image){
 
 					
 				?>
-
+				<h4>Uploaded by <?php echo $image[2]; ?></h4>
 				<div class="like-box" data-like="<?php echo $existQuery->posts[0]->ID; ?>" data-photoID="<?php echo $image[1]; ?>" data-exists="<?php echo $existStatus ?>">
 					<i class="far fa-heart heart-empty" aria-hidden="true"></i>
 					<i class="fas fa-heart heart-filled" aria-hidden="true"></i>

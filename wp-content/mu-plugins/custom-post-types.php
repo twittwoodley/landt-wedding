@@ -33,6 +33,22 @@ function custom_post_types() {
 		),
 		'menu_icon' => 'dashicons-heart'
 	));
+
+	//Question post type
+		register_post_type('question', array(
+		'supports' => array('title', 'editor', 'page-attributes'),
+		'hierarchical' => true,
+		'show_in_rest' => true,
+		'show_ui' => true,
+		'labels' => array(
+			'name' => 'Questions',
+			'add_new_item' => 'Add New Question',
+			'edit_item' => 'Edit Question',
+			'all_items' => 'All Questions',
+			'singular_name' => 'Question'
+		),
+		'menu_icon' => 'dashicons-format-status'
+	));
 }
 
 add_action('init', 'custom_post_types');
