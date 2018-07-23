@@ -37,6 +37,9 @@ function custom_post_types() {
 	//Question post type
 		register_post_type('question', array(
 		'supports' => array('title', 'editor', 'page-attributes'),
+		'map_meta_cap' => true,
+		'capability_type' => 'Question',
+		'public' => true,
 		'hierarchical' => true,
 		'show_in_rest' => true,
 		'show_ui' => true,

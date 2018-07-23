@@ -149,17 +149,41 @@ class UserQuestions {
 										<span class="submit-reply">Submit</span>
 									</div>
 									<div class="question-buttons">
-										<span class="reply-question"><i class="fa fa-reply" aria-hidden="true"></i></span>
-										<span class="edit-question"><i class="fa fa-edit" aria-hidden="true"></i></span>
-										<span class="delete-question"><i class="fa fa-trash-alt" aria-hidden="true"></i></span>
-										<span class="save-question"><i class="fa fa-upload" aria-hidden="true"></i></span>
+										<div class="reply-button-cont">
+											<span class="reply-question"><i class="fa fa-reply" aria-hidden="true"></i></span>
+											<span class="button-desc">
+											 	<div class="arrow-notch"></div>
+											 	<p class="desc-text">Reply</p>
+											</span>
+										</div>
+										<div class="edit-button-cont">
+											<span class="edit-question"><i class="fa fa-edit" aria-hidden="true"></i></span>
+											<span class="button-desc">
+											 	<div class="arrow-notch"></div>
+											 	<p class="desc-text edit-cancel-text">Edit</p>
+											</span>
+										</div>
+										<div class="delete-button-cont">
+											<span class="delete-question"><i class="fa fa-trash-alt" aria-hidden="true"></i></span>
+											<span class="button-desc">
+											 	<div class="arrow-notch"></div>
+											 	<p class="desc-text">Delete</p>
+											</span>
+										</div>
+										<div class="save-button-cont">
+											<span class="save-question"><i class="fa fa-upload" aria-hidden="true"></i></span>
+											<span class="button-desc">
+											 	<div class="arrow-notch"></div>
+											 	<p class="desc-text">Save</p>
+											</span>
+										</div>
 								</div>
 							</div>
 						</div>
+						<ul class="reply-ul">
+						</ul>
 						<span class="question-meta reply-meta">Posted by you just now</span>
-					<ul class="reply-ul">
-					</ul>
-					<hr class="question-break">
+
 					`).prependTo("#allQuestions").hide().slideDown();
 
 				console.log('You updated a post')
@@ -190,16 +214,36 @@ class UserQuestions {
 			success: (response) => {
 				$(e.target).parents('li').find('.reply-input').val('');
 				$(`
-					<li class="question-li reply-container" data-id="${response.id}">
-						<p class="reply-text">${response.title.raw}</p>
-						<div class="question-buttons reply-buttons">
+				<li class="question-li reply-container" data-id="${response.id}">
+					<p class="reply-text">${response.title.raw}</p>
+					<div class="question-buttons reply-buttons">
+						
+						<div class="edit-button-cont">
 							<span class="edit-reply"><i class="fa fa-edit" aria-hidden="true"></i></span>
-							<span class="delete-reply"><i class="fa fa-trash-alt" aria-hidden="true"></i></span>
-							<span class="save-reply"><i class="fa fa-upload" aria-hidden="true"></i></span>
+							<span class="button-desc">
+							 	<div class="arrow-notch"></div>
+							 	<p class="desc-text edit-cancel-text">Edit</p>
+							</span>
 						</div>
-						<span class="reply-meta">Posted by you just now</span>
-						<hr>
-					</li>
+						<div class="delete-button-cont">
+							<span class="delete-reply"><i class="fa fa-trash-alt" aria-hidden="true"></i></span>
+							<span class="button-desc">
+							 	<div class="arrow-notch"></div>
+							 	<p class="desc-text">Delete</p>
+							</span>
+						</div>
+						<div class="save-button-cont">
+							<span class="save-reply"><i class="fa fa-upload" aria-hidden="true"></i></span>
+							<span class="button-desc">
+							 	<div class="arrow-notch"></div>
+							 	<p class="desc-text">Save</p>
+							</span>
+
+						</div>
+					</div>
+					<span class="reply-meta">From <?php the_author(); ?> on <?php echo $date; ?></span>
+					<hr>
+				</li>
 					`).prependTo(thisReply.find(".reply-ul")).hide().slideDown();
 
 				console.log('You updated a post')

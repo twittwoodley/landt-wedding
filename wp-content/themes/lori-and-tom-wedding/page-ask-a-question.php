@@ -44,6 +44,9 @@ get_template_part('template-parts/content', 'navigation');
 											 	<p class="desc-text">Reply</p>
 											</span>
 										</div>
+										<?php 
+										if(get_current_user_id() == get_the_author_meta('ID')) {
+									?>
 										<div class="edit-button-cont">
 											<span class="edit-question"><i class="fa fa-edit" aria-hidden="true"></i></span>
 											<span class="button-desc">
@@ -65,6 +68,8 @@ get_template_part('template-parts/content', 'navigation');
 											 	<p class="desc-text">Save</p>
 											</span>
 										</div>
+										<?php }
+										?>
 								</div>
 							</div>
 						</div>
@@ -84,8 +89,10 @@ get_template_part('template-parts/content', 'navigation');
 								$date = get_the_date('D M y');
 								?>
 								<li class="question-li reply-container" data-id="<?php echo get_the_ID(); ?>">
-									<!-- <input class="reply-text" value="<?php the_title(); ?>"> -->
 									<p class="reply-text"><?php the_title(); ?></p>
+									<?php 
+										if(get_current_user_id() == get_the_author_meta('ID')) {
+									?>
 									<div class="question-buttons reply-buttons">
 										
 										<div class="edit-button-cont">
@@ -111,6 +118,8 @@ get_template_part('template-parts/content', 'navigation');
 
 										</div>
 									</div>
+									<?php }
+								?>
 									<span class="reply-meta">From <?php the_author(); ?> on <?php echo $date; ?></span>
 									<hr>
 								</li>
