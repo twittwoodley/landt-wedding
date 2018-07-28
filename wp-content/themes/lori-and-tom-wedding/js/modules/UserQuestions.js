@@ -67,7 +67,7 @@ class UserQuestions {
 	makeReplyReadonly(thisReply) {
 		thisReply.find('.edit-reply').html('<i class="fa fa-edit" aria-hidden="true"></i>');
 		thisReply.find('.edit-cancel-text').html('Edit');
-		thisReply.find(".reply-text").removeAttr('contenteditable', 'false').removeClass('edit-question-active');
+		thisReply.find(".reply-text").attr('contenteditable', 'false').removeClass('edit-question-active');
 		thisReply.find(".save-reply").removeClass("save-question-visible");
 		thisReply.data("state", "cancel");
 	}
@@ -277,7 +277,7 @@ class UserQuestions {
 	}
 
 	updateReply(e) {
-		var thisReply = $(e.target).parents("li");
+		var thisReply = $(e.target).parents(".reply-container");
 
 		var updatedReply = {
 			'title': thisReply.find(".reply-text").html()
@@ -291,7 +291,7 @@ class UserQuestions {
 			type: 'POST',
 			data: updatedReply,
 			success: (response) => {
-				this.makeQuestionReadonly(thisReply);
+				this.makeReplyReadonly(thisReply);
 				console.log('You updated a post')
 				console.log(response);
 			},

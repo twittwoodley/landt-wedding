@@ -6,8 +6,20 @@ class DeleteImage {
 	}
 
 	events() {
-		$(".delete-image").on('click', this.deletePhoto.bind(this));
+		$(".delete-image").on('click', this.confirmDelete.bind(this));
 	}
+
+	confirmDelete(e) {
+		var thisImage = $(e.target).closest(".gallery-image-thumb");
+		thisImage.find(".confirm-container").addClass("confirm-container-active");
+		thisImage.find('.cancel-delete').on('click', this.cancelDelete.bind(this));
+		thisImage.find('.confirm-delete').on('click', this.deletePhoto.bind(this));
+	}
+
+	cancelDelete(e) {
+		$(".confirm-container").removeClass("confirm-container-active");
+	}
+
 	//methods
 	deletePhoto(e) {
 		var imageToBeDeleted = $(e.target).closest(".gallery-image-thumb");

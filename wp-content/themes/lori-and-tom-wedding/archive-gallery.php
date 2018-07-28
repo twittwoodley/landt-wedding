@@ -47,7 +47,7 @@ if ( $_FILES ) {
             $newupload = kv_handle_attachment($file,$pid); 
           } 
         } 
-              } 
+      } 
 
     }
 }
@@ -63,7 +63,7 @@ $query_images_args = array(
     'post_mime_type' => 'image',
     'post_status'    => 'inherit',
     'posts_per_page' => - 1,
-    'author' => get_current_user_id()
+    'author' => get_current_user_id(),
 );
 
 $query_images = new WP_Query( $query_images_args );
@@ -74,13 +74,19 @@ foreach ( $query_images->posts as $image ) {
 
 }
 
-
 foreach ($images as $image){
   ?>
     <div class="gallery-image-thumb" data-id="<?php echo $image[1]; ?>" style="background-image: url(<?php echo $image[0]; ?>)">
-      <div class="gallery-thumb-overlay">
-        <span class="delete-image"><i class="fa fa-times"></i>Delete</span>
+      <div class="gallery-thumb-overlay delete-overlay">
+        <div class="delete-container">
+          <i class="delete-image fa fa-times"><span>Delete</span></i>
+          <div class="confirm-container">
+          <span class="confirm-delete">Yes</span>
+          <span class="cancel-delete">No</span>
+        </div>
       </div>
+        </div>
+
     </div>
   <?php
 } ?>
@@ -89,8 +95,7 @@ foreach ($images as $image){
 <h2>All Photos</h2>
 <?php
   get_template_part('template-parts/content', 'gallery');
-
- get_footer(); ?>
+  get_footer(); ?>
 <script>
 
  (function() {

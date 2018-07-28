@@ -36,7 +36,6 @@ function createLike($data) {
 		return wp_insert_post(array(
 			'post_type' => 'like',
 			'post_status' => 'publish',
-			'post_title' => 'Our Post Like v2',
 			'meta_input' => array(
 				'liked_photo_id' => $photo
 			)

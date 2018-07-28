@@ -16,6 +16,14 @@ function files_and_scripts() {
 
 add_action('wp_enqueue_scripts',  'files_and_scripts');
 
+function themeFeatures() {
+  add_theme_support('title-tag');
+  add_theme_support('post-thumbnails');
+  add_image_size('galleryThumb', 400, 260, true);
+}
+
+add_action('after_setup_theme', 'themeFeatures');
+
 function kv_handle_attachment($file_handler,$post_id,$set_thu=false) {
 	// check to make sure its a successful upload
 	if ($_FILES[$file_handler]['error'] !== UPLOAD_ERR_OK) __return_false();

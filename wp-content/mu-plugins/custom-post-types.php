@@ -52,6 +52,27 @@ function custom_post_types() {
 		),
 		'menu_icon' => 'dashicons-format-status'
 	));
+
+	//Song post type
+		register_post_type('song', array(
+		'supports' => array('title'),
+		'map_meta_cap' => true,
+		'has_archive' => true,
+		'capability_type' => 'Song',
+		'public' => true,
+		'show_in_rest' => true,
+		'show_ui' => true,
+		'labels' => array(
+			'name' => 'Songs',
+			'add_new_item' => 'Add New Song',
+			'edit_item' => 'Edit Song',
+			'all_items' => 'All Songs',
+			'singular_name' => 'Song'
+		),
+		'menu_icon' => 'dashicons-format-audio'
+	));
+
+
 }
 
 add_action('init', 'custom_post_types');
