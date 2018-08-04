@@ -12,7 +12,7 @@
 
 .upload-form-container {
 	background: rgba(130, 130, 130, 0.73);
-    padding: 30px;
+    padding: 10px;
     border-radius: 20px;
     text-align: center;
     box-shadow: 3px 3px 7px rgb(163, 163, 163);
@@ -32,10 +32,11 @@
 
 .upload-form label, .upload-form input {
 	background-color: white;
-	color: var(--bronze);
-	font-size: 40px;
-	font-weight: 800;
-	cursor: pointer;
+     color: var(--primary-color); 
+    font-size: 25px;
+    /* font-weight: 800; */
+    cursor: pointer;
+    border-radius: 10px;
 }
 
 .error-msg {
@@ -51,15 +52,26 @@
     align-items: center;
 }
 
+
 /*Image gallery styling*/
+.gallery-container {
+        display: flex;
+    width: 90%;
+    flex: 1 1 25%;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
 
 .gallery-image-thumb{
     background-position: center;
     background-size: cover;
     position: relative;
-    width: 25%;
+    width: 231px;
     height: 220px;
     border: 2px solid white;
+    box-shadow: 3px 3px 8px rgb(100,100,100);
+    margin: 3px;
 }
 
 .gallery-thumb-overlay {
@@ -68,48 +80,73 @@
     flex-direction: column;
     width: 100%;
     height: 100%;
-    background-color: rgba(1,1,1,0.5);
-    opacity: 0;
     color: white;
     justify-content: space-between;
+}
+
+.overlay-info-top, .overlay-info-bottom {
+    background-color: rgba(1,1,1,0.5);
+    color: white;
+    max-height: 0;
+    transition: 0.5s;
+    overflow: hidden;
+}
+
+.overlay-info-top > *, .overlay-info-bottom >* {
+    padding: 10px 17px;
 }
 
 .gallery-thumb-overlay > * {
     display: flex;
     justify-content: space-between;
-    padding: 16px;
-    font-size: 36px;
+    /*padding: 5px 10px;*/
+    font-size: 21px;
 }
 
 .photographer-name {
+    font-size: 20px;
     margin: 0;
+    color: white; 
 }
 
 .like-box > i {
     cursor: pointer;
+    color: white;  
 }
 
-.gallery-thumb-overlay:hover {
+.like-box, .image-download-link > i {
+    color: white;
+}
+
+.gallery-thumb-overlay:hover .overlay-info-top, .gallery-thumb-overlay:hover .overlay-info-bottom  {
     opacity: 1;
+    max-height: 500px;
+}
+
+.image-enlarge-link img {
+    width: 30px;
 }
 
 
-.gallery-container {
+/*  Delete image styling */
+.delete-container {
     display: flex;
-    width: 100%;
-    flex:1 1 25%;
-    flex-wrap:wrap;
+    flex-direction: column;
+    align-items: center;
+    color: white;
 }
 
 .delete-overlay {
     align-items: center;
     justify-content: center;
+    background-color: rgba(1,1,1,0.5);
+    opacity: 0;
+    transition: 0.3s;
+
 }
 
-.delete-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.delete-overlay:hover {
+    opacity: 1;
 }
 
 .delete-image:hover {
@@ -118,6 +155,7 @@
 
 .confirm-container {
     display: none;
+    color: white;
 }
 
 .confirm-container-active {

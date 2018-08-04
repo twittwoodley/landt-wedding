@@ -4,9 +4,9 @@ require get_theme_file_path('/inc/like-route.php');
 require get_theme_file_path('/inc/delete-image.php');
 
 function files_and_scripts() {
-	wp_enqueue_style('custom-google-font', '//fonts.googleapis.com/css?family=Qwigley'); //Google Font
-	wp_enqueue_style('font-awesome', '//use.fontawesome.com/releases/v5.0.13/css/all.css'); //Font Awesome
-	wp_enqueue_style('university_main_styles', get_stylesheet_uri());
+	wp_enqueue_style('custom-google-font', '//fonts.googleapis.com/css?family=Ubuntu:400,700'); //Google Font
+	wp_enqueue_style('font-awesome', 'https://use.fontawesome.com/releases/v5.0.13/css/all.css'); //Font Awesome
+	wp_enqueue_style('main_styles', get_stylesheet_uri());
 	wp_enqueue_script('main-js', get_theme_file_uri('/js/scripts-bundled.js'), NULL, '1.0', true);
 	 wp_localize_script('main-js', 'themeData', array(
     'root_url' => get_site_url(),

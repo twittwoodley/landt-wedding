@@ -21,15 +21,25 @@ class UserQuestions {
 	}
 
 	editQuestion(e) {
+		let previousQuestionContent;
 		var thisQuestion = $(e.target).parents("li");
 		if (thisQuestion.data("state") == "editable") {
 			this.makeQuestionReadonly(thisQuestion);
+			if(e.target.classList.contains("fa-times")) {
+				//thisQuestion.find('.question-field').html(`${previousQuestionContent}`);
+				//console.log(previousQuestionContent);
+			}
+			//console.log(e.target);
 		} else {
 			this.makeQuestionEditable(thisQuestion);
+			//console.log(e.target);
+			previousQuestionContent = 
+			thisQuestion.find(".question-field").html();
+			//console.log(previousQuestionContent);
 		}
 	}
 
-	makeQuestionEditable(thisQuestion) {
+	makeQuestionEditable(thisQuestion, e) {
 		thisQuestion.find('.edit-question').html('<i class="fa fa-times" aria-hidden="true"></i>');
 		thisQuestion.find('.edit-cancel-text').html('Cancel');
 		thisQuestion.find(".question-field").attr('contenteditable', 'true').addClass('edit-question-active');
@@ -38,7 +48,7 @@ class UserQuestions {
 		thisQuestion.find('.question-field').focus();
 	}
 
-	makeQuestionReadonly(thisQuestion) {
+	makeQuestionReadonly(thisQuestion, e) {
 		thisQuestion.find('.edit-question').html('<i class="fa fa-edit" aria-hidden="true"></i>');
 		thisQuestion.find('.edit-cancel-text').html('Edit');
 		thisQuestion.find(".question-field").removeAttr('contenteditable', 'false').removeClass('edit-question-active');
@@ -143,6 +153,7 @@ class UserQuestions {
 					<li class="question-li" data-id="${response.id}">
 						<div class="question-wrap">
 							<h4 class="question-field">${response.title.raw}</h4>
+							<span class="question-meta reply-meta">Posted by you just now</span>
 								<div class="question-reply-and-buttons">
 									<div class="reply-input-cont">
 										<input class="reply-input">
@@ -182,7 +193,8 @@ class UserQuestions {
 						</div>
 						<ul class="reply-ul">
 						</ul>
-						<span class="question-meta reply-meta">Posted by you just now</span>
+						<hr class="question-break">
+						</li>
 
 					`).prependTo("#allQuestions").hide().slideDown();
 
@@ -241,7 +253,7 @@ class UserQuestions {
 
 						</div>
 					</div>
-					<span class="reply-meta">From <?php the_author(); ?> on <?php echo $date; ?></span>
+					<span class="reply-meta">Posted by you just now</span>
 					<hr>
 				</li>
 					`).prependTo(thisReply.find(".reply-ul")).hide().slideDown();

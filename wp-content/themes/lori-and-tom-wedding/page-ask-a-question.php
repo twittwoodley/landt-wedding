@@ -11,11 +11,11 @@ get_template_part('template-parts/content', 'navigation');
 		<h2>Questions</h2>
 		<div class="questions-container">
 		<div class="create-question">
-			<h3>Ask a Question</h3>
+			<h3 class="ask-a-question-title">Ask a Question</h3>
 			<input class="new-question-input" placeholder="Ask away!">
 			<span class="submit-question">Submit</span>
 		</div>
-
+		<img src="<?php echo get_theme_file_uri('/images/section-break.png'); ?>">
 		<ul class="questions" id="allQuestions">
 			<?php
 				$questions = new WP_Query(array(
@@ -31,6 +31,7 @@ get_template_part('template-parts/content', 'navigation');
 					<li class="question-li" data-id="<?php echo get_the_ID(); ?>">
 						<div class="question-wrap">
 							<h4 class="question-field"><?php echo esc_attr(get_the_title()); ?></h4>
+							<span class="question-meta reply-meta">From <?php the_author(); ?> on <?php echo $date?></span>
 								<div class="question-reply-and-buttons">
 									<div class="reply-input-cont">
 										<input class="reply-input">
@@ -70,10 +71,10 @@ get_template_part('template-parts/content', 'navigation');
 										</div>
 										<?php }
 										?>
-								</div>
+									</div>
 							</div>
 						</div>
-						<span class="question-meta reply-meta">From <?php the_author(); ?> on <?php echo $date?></span>
+						
 						
 
 						<ul class="reply-ul">
@@ -120,7 +121,7 @@ get_template_part('template-parts/content', 'navigation');
 									</div>
 									<?php }
 								?>
-									<span class="reply-meta">From <?php the_author(); ?> on <?php echo $date; ?></span>
+									<div style="width:100%"><span class="reply-meta">From <?php the_author(); ?> on <?php echo $date; ?></span></div>
 									<hr>
 								</li>
 								<?php }

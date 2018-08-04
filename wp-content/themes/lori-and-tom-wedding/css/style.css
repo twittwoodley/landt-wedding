@@ -8,17 +8,18 @@
 @import "normalize.css";
 @import "slick-carousel/slick/slick.css";
 @import "lightbox2/dist/css/lightbox.css";
+/*@import "base/fa-all.min";*/
 
-/* SASS and Global'ish Stuff */
+/* Global Styling */
 @import "base/variables";
-@import "base/baseline";
-@import "base/utility-classes";
+@import "base/generic-content";
 
-/* BEM Blocks */
-@import "modules/generic-content";
-@import "modules/acf-map";
+
+
+/* Page specific */
 @import "modules/navigation";
-@import "modules/homepage";
+@import "modules/page-home";
 @import "modules/gallery";
 @import "modules/like";
 @import "modules/question";
+@import 'modules/song';

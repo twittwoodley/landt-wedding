@@ -9,7 +9,7 @@
 nav = document.querySelector('.nav-container');
 container = document.querySelector(".content-wrapper");
 
-container.style.marginTop= nav.offsetHeight + 'px';
+container.style.marginTop= 'calc(30px + '  + nav.offsetHeight + 'px)';
 
 })();
 

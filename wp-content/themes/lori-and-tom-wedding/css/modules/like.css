@@ -2,13 +2,14 @@
  * Like Box CSS
 */
 .like-count {
-  padding-left: 49px;
+  padding-left: 28px;
 }
 
 .like-box .heart-empty {
   -webkit-transition: all .35s ease-out;
   transition: all .35s ease-out;
   position: absolute;
+  color: white;
 }
 
 .like-box .heart-filled {
@@ -19,6 +20,7 @@
   -webkit-transform: scale(.2);
           transform: scale(.2);
   opacity: 0;
+  color: white;
 }
 
 .like-box[data-exists="yes"] .heart-filled {

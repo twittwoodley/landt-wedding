@@ -11,6 +11,9 @@
 
 <div class="sign-up-form-container upload-form-container">
   <h2>Add Photos</h2>
+  <p style="color:white;">Upload your favourite photos for others to see. <br>
+     Further down the page, you can like and download all of the <br>photos others have uploaded to the site.
+  </p>
   <form id="uploadForm" class="upload-form" method="post" enctype="multipart/form-data" name="front_end_upload" onload="document.getElementById("uploadForm").reset();">
     <label for="gallery-file-upload" class="file-upload-custom">
       <i class="fa fa-cloud-upload"></i> Choose Photos
@@ -21,6 +24,7 @@
   </form>
 
 </div>
+    
 
  <?php
 //Upload multiple photos logic
@@ -53,6 +57,7 @@ if ( $_FILES ) {
 }
 
 ?>
+  <img src="<?php echo get_theme_file_uri('/images/section-break.png'); ?>">
   <h2>Your Photos</h2>
 
 <div class="gallery-container">
@@ -92,9 +97,30 @@ foreach ($images as $image){
 } ?>
 </div>
 
-<h2>All Photos</h2>
+  <img src="<?php echo get_theme_file_uri('/images/section-break.png'); ?>">
+  <h2>All Photos</h2>
 <?php
-  get_template_part('template-parts/content', 'gallery');
+$galleryArgs = array(
+            'post_type' => 'like',
+             'meta_query' => array(
+              array(
+                'key' => 'liked_photo_id',
+                'compare' => '=',
+                'value' => $image[1]
+                )
+              )
+          );
+$query_images_args = array(
+    'post_type'      => 'attachment',
+    'post_mime_type' => 'image',
+    'post_status'    => 'inherit',
+    'posts_per_page' => -1,
+);
+
+$query_images = new WP_Query( $query_images_args );
+include(locate_template('template-parts/content-gallery.php'));
+
+
   get_footer(); ?>
 <script>
 

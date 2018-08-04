@@ -1,0 +1,78 @@
+/*
+ * Page-home Styling
+ */
+
+.flex-cont-x {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.flex-cont-x > * {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+  flex: 1;
+  font-size: 47px;
+}
+
+.outer-frame {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 80%;
+	height: 400px;
+	background-color: var(--light-grey);
+}
+
+.inner-frame {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+	width: 99%;
+	height: 99%;
+	background-color: #b9f4dc;
+}
+
+.rotate-left {
+  transform: rotate(-2deg);
+}
+
+.rotate-right {
+  transform:  rotate(3deg);
+}
+
+.kid-photo {
+  width: 98%;
+  height: 98%;
+  background-color: burlywood;
+  background-position: center center;
+  background-size: cover;
+  border: 4px inset #81c0a7;
+  box-shadow: 3px 3px 8px rgb(101, 101, 101);
+}
+
+.day-count-container {
+  display: flex;
+  flex-direction:column;
+  text-align: center; 
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.day-count-container .heart-background {
+  position: absolute;
+  font-size: 26vw;
+}
+
+.day-count-container span {
+      font-size: 2vw;
+    line-height: 0px;
+}
+
+.day-count-container h2 {
+  line-height: 2.4vw;
+  font-size: 5vw;
+  color: var(--primary-color);
+  }

@@ -1,5 +1,8 @@
-/* $beige: #FAF0CA;
-$mainYellow: #F4D35E;
-$mainBlue: #0D3B66;
-$lightOrange: #EE964B;
-$darkOrange: #F95738; */
+:root {
+    --primary-color: #44DB9E;
+    --bronze: #a35c00;
+    --light-grey: rgb(227, 243, 209);
+    --main-font:  'Ubuntu', sans-serif;
+    --light-pink: #ffadd3;
+}
+
