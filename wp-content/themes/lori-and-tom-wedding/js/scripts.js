@@ -13,6 +13,7 @@ import Like from './modules/Like';
 import DeleteImage from './modules/DeleteImage';
 import UserQuestions from './modules/UserQuestions';
 import Gallery from './modules/Gallery';
+import GalleryLoadMore from './modules/GalleryLoadMore';
 
 // Instantiate a new object using our modules/classes
 
@@ -23,3 +24,4 @@ var deleteImage = new DeleteImage();
 var like = new Like();
 var userQuestions = new UserQuestions();
 var gallery = new Gallery();
+var galleryLoadMore = new GalleryLoadMore();

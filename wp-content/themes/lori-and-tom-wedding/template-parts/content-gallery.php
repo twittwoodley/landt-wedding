@@ -1,4 +1,4 @@
-<div class="gallery-container">
+<div class="gallery-container" data-imgcount="0">
 <?php 
 //Get gallery images URL
 
@@ -30,8 +30,14 @@ function cmp($imagesB, $images) {
         return ($images[4] < $imagesB[4]) ? -1 : 1;
     }
     usort($images, "cmp");
+    //print_r($images);
+    $sliceImg = array_slice($images, 0, 8); 
 
-foreach ($images as $image){ ?>
+
+foreach ($sliceImg as $image){ 
+	$i;
+	$i++;
+	?>
 		<div class="gallery-image-thumb" style="background-image: url(<?php echo $image[0]; ?>)">
 			<div class="gallery-thumb-overlay">
 				<div class="overlay-info-top">
@@ -83,9 +89,9 @@ foreach ($images as $image){ ?>
 			</div>
 		</div>
 	<?php
-	if ($i++ == 7) break;
-} 
-
+	//if ($i == 8) break;
+} 	
+//echo posts_nav_link();
 ?>
 
 </div>

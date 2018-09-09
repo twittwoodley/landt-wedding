@@ -6,7 +6,7 @@ class Like {
 	}
 
 	events() {
-		$(".like-box").on('click', this.clickDispatcher.bind(this));
+		$(".gallery-container").on('click', ".like-box", this.clickDispatcher.bind(this));
 	}
 	//Methods
 

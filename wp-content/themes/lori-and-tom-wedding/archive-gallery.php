@@ -30,14 +30,14 @@
 //Upload multiple photos logic
 
 if( 'POST' == $_SERVER['REQUEST_METHOD']  ) {
-if ( $_FILES ) { 
-    $files = $_FILES["kv_multiple_attachments"];
-    if (count($files['name']) > 15) {
+  /*if (count( $_FILES["kv_multiple_attachments"]) > 15) {
       die('<div class="error-msg">Sorry, You can only upload 15 files <br>
           <label for="gallery-file-upload" class="file-reupload-btn">Reselect files</label>
         </div>');
-    }
-    foreach ($files['name'] as $key => $value) {      
+    }*/
+if ( $_FILES ) { 
+    $files = $_FILES["kv_multiple_attachments"];
+   /* foreach ($files['name'] as $key => $value) {      
         if ($files['name'][$key]) { 
           $file = array( 
             'name' => $files['name'][$key],
@@ -51,14 +51,14 @@ if ( $_FILES ) {
             $newupload = kv_handle_attachment($file,$pid); 
           } 
         } 
-      } 
+      } */
 
     }
 }
-
+print_r($files);
 ?>
   <img src="<?php echo get_theme_file_uri('/images/section-break.png'); ?>">
-  <h2>Your Photos</h2>
+  <!-- <h2>Your Photos</h2>
 
 <div class="gallery-container">
 <?php 
@@ -97,7 +97,7 @@ foreach ($images as $image){
 } ?>
 </div>
 
-  <img src="<?php echo get_theme_file_uri('/images/section-break.png'); ?>">
+  <img src="<?php echo get_theme_file_uri('/images/section-break.png'); ?>"> -->
   <h2>All Photos</h2>
 <?php
 $galleryArgs = array(
@@ -119,8 +119,10 @@ $query_images_args = array(
 
 $query_images = new WP_Query( $query_images_args );
 include(locate_template('template-parts/content-gallery.php'));
-
-
+?>
+  <div class="load-more">Load More</div>
+<?php
+//echo get_theme_file_uri();
   get_footer(); ?>
 <script>
 
