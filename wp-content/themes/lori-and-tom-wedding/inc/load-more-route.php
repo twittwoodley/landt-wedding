@@ -61,7 +61,8 @@ function imageResults($data) {
 	    	"likeCount" => $imagelike->found_posts,
 	    	"likeID" => $existQuery->posts[0]->ID,
 	    	"existStatus" => $existStatus,
-	    	"currentUser" => $data['current_user']
+	    	"currentUser" => $data['current_user'],
+	    	"maxPosts" => $query_images->found_posts
 	    	)
 	    );
 	}
