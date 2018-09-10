@@ -70,12 +70,12 @@ function imageResults($data) {
       	if ($images['likeCount']== $imagesB['likeCount']) {
             return 0;
         }
-        return ($images[4] < $imagesB[4]) ? -1 : 1;
+        return ($images['likeCount'] < $imagesB['likeCount']) ? -1 : 1;
     }
     usort($images, "cmp");
 	
 	$imageCount = $data['image_count'] + 8;
-	$slicedImages = array_slice($images, $imageCount, 8);
+	$slicedImages = array_slice($images, $imageCount, 8, false);
 	return $slicedImages;
 }
 ?>

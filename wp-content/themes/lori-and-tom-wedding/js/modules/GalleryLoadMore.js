@@ -16,7 +16,8 @@ class GalleryLoadMore {
 		$.getJSON(themeData.root_url + '/wp-json/gallery/v1/images', {current_user : themeData.current_user, image_count : imageCount}, (slicedImages) => {
 				//console.log(slicedImages[0]['maxPosts']);
 				//console.log(imageCount);
-				if (slicedImages[0]['maxPosts'] > imageCount) {
+				var maxPosts = slicedImages[0]['maxPosts'];
+				if (maxPosts > imageCount) {
 					slicedImages.forEach(function(image){`
 					${$(".gallery-container").append(`
 						<div class="gallery-image-thumb" style="background-image: url(${image.urlMeduimSize})">
