@@ -1,8 +1,4 @@
 <?php 
-	if(!is_user_logged_in()) {
-	    wp_redirect(esc_url(site_url('/'))); //change this to load the homepage for logged in users
-	    exit;
-	  }
   	get_header(); 
     get_template_part('template-parts/content', 'navigation');
 	?>

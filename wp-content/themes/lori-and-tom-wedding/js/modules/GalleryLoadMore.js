@@ -14,10 +14,8 @@ class GalleryLoadMore {
 		var imageCount = $(".gallery-container").data("imgcount");
 		//console.log(imageCount);
 		$.getJSON(themeData.root_url + '/wp-json/gallery/v1/images', {current_user : themeData.current_user, image_count : imageCount}, (slicedImages) => {
-				//console.log(slicedImages[0]['maxPosts']);
-				//console.log(imageCount);
-				var maxPosts = slicedImages[0]['maxPosts'];
-				if (maxPosts > imageCount) {
+				console.log(slicedImages);
+				if (slicedImages.length) {
 					slicedImages.forEach(function(image){`
 					${$(".gallery-container").append(`
 						<div class="gallery-image-thumb" style="background-image: url(${image.urlMeduimSize})">
@@ -36,10 +34,12 @@ class GalleryLoadMore {
 								</div>
 							</div>
 						</div>
-					`)}	
+					`).slideDown()}	
 				`});
 				} else {
-					$(".load-more").html("That\'s all folks!");
+					//$(".load-more").html("That\'s all folks! Why not share some of your own photo's");
+					$("div.load-more").hide();
+					$(".gallery-container").append(`</div><a href="#" class="load-more">Thats all folks! Why not share some for others to see?</a>`);
 				}
 				
 			imageCount = $(".gallery-container").data("imgcount", imageCount + 8);

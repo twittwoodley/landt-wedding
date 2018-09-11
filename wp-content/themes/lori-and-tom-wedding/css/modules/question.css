@@ -42,6 +42,12 @@
     border: 2px solid white;
 }
 
+.submit-question:hover {
+    cursor: pointer;
+    color: var(--light-pink);
+    background: #fff;
+}
+
 .questions {
 	display: flex;
     flex-direction: column;

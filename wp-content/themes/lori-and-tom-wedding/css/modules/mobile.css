@@ -1,0 +1,40 @@
+
+@media only screen and (max-width: 880px) {
+	nav li {
+		height: 63px;
+	    font-size: 0.7em;
+	}
+}
+
+.mobile-menu-btn {
+		color: #fff;
+	    text-align: center;
+	    padding: 13px;
+	    font-size: 1.2em;
+	    text-transform: uppercase;
+	    display: none;
+}
+
+.mobile-menu-btn {
+	cursor: pointer;
+}
+
+@media only screen and (max-width: 565px) {
+	nav ul {
+		flex-direction: column;
+	    font-size: 1.5em;
+	    display: block;
+	    max-height: 0;
+    	overflow: hidden;
+    	box-shadow: none;
+    	transition: 0.5s;
+	}
+
+	.mobile-menu-btn {
+		display: block;
+	}
+
+	.show-nav {
+		max-height: 5000px;
+	}
+}

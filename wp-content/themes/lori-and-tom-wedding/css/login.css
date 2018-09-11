@@ -1,0 +1,56 @@
+*, body {
+    font-family: 'Asap', sans-serif !important;
+}
+
+.login h1 a {
+    display: none;
+}
+
+
+body {
+    background: url('../images/body-bg.png');
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.login form {
+    box-shadow: 4px 4px 4px rgba(0,0,0,.2);
+    border-radius: 15px;
+    border: 5px solid #44DB9E;
+}
+
+#login {
+    padding: 4% 0 0;
+}
+
+.wp-core-ui .button-primary {
+    color: #44DB9E;
+    background: #fff;
+    border: 3px solid #44DB9E;
+    text-shadow: none;
+    box-shadow: 1px 1px 4px rgba(1,1,1,0.4);
+    font-weight: 800;
+    transitio: 0.3s;
+}
+
+input[type=text]:focus, input[type=search]:focus, input[type=radio]:focus, input[type=tel]:focus, input[type=time]:focus, input[type=url]:focus, input[type=week]:focus, input[type=password]:focus, input[type=checkbox]:focus, input[type=color]:focus, input[type=date]:focus, input[type=datetime]:focus, input[type=datetime-local]:focus, input[type=email]:focus, input[type=month]:focus, input[type=number]:focus, select:focus, textarea:focus {
+    border-color: #44DB9E;
+    box-shadow: 1px 1px 2px rgba(1,1,1,0.4);
+}
+
+.wp-core-ui .button-primary.focus, .wp-core-ui .button-primary.hover, .wp-core-ui .button-primary:focus, .wp-core-ui .button-primary:hover {
+    background: #44DB9E;
+    color: #fff;
+        border: 3px solid #44DB9E;
+
+}
+
+.login #login_error, .login .message, .login .success {
+    border-left: 4px solid #ccc;
+}
+
+#backtoblog {
+    display: none;  
+}

@@ -1,8 +1,4 @@
 <?php 
-	if(!is_user_logged_in()) {
-	    wp_redirect(esc_url(site_url('/'))); //change this to load the homepage for logged in users
-	    exit;
-	  }
   	get_header(); 
     get_template_part('template-parts/content', 'navigation');
 
@@ -57,7 +53,7 @@ if ( $_FILES ) {
 }
 print_r($files);
 ?>
-  <img src="<?php echo get_theme_file_uri('/images/section-break.png'); ?>">
+  <img class="fancy-section-break" src="<?php echo get_theme_file_uri('/images/section-break.png'); ?>">
   <!-- <h2>Your Photos</h2>
 
 <div class="gallery-container">
@@ -97,7 +93,7 @@ foreach ($images as $image){
 } ?>
 </div>
 
-  <img src="<?php echo get_theme_file_uri('/images/section-break.png'); ?>"> -->
+  <img class="fancy-section-break" src="<?php echo get_theme_file_uri('/images/section-break.png'); ?>"> -->
   <h2>All Photos</h2>
 <?php
 $galleryArgs = array(

@@ -1,8 +1,4 @@
 <?php
-if(!is_user_logged_in()) {
-    wp_redirect(esc_url(site_url('/'))); //change this to load the homepage for logged in users
-    exit;
-  }
 get_header(); 
 get_template_part('template-parts/content', 'navigation');
 ?>
@@ -15,7 +11,7 @@ get_template_part('template-parts/content', 'navigation');
 			<input class="new-question-input" placeholder="Ask away!">
 			<span class="submit-question">Submit</span>
 		</div>
-		<img src="<?php echo get_theme_file_uri('/images/section-break.png'); ?>">
+		<img class="fancy-section-break" src="<?php echo get_theme_file_uri('/images/section-break.png'); ?>">
 		<ul class="questions" id="allQuestions">
 			<?php
 				$questions = new WP_Query(array(

@@ -52,3 +52,23 @@ function remove_admin_login_header() { //Removes Admin Header Bar
 add_action('get_header', 'remove_admin_login_header');
 
 show_admin_bar( false );
+
+//Customize login screen 
+add_filter('login_headerurl', 'ourHeaderURL');
+
+function ourHeaderURL() {
+  return esc_url(site_url('/'));
+}
+
+add_action('login_enqueue_scripts', 'ourLoginCSS');
+
+function ourLoginCSS() {
+	wp_enqueue_style('custom-google-font', '//fonts.googleapis.com/css?family=Asap:400,600|Zeyada'); //Google Font
+  	wp_enqueue_style('login-styling', get_theme_file_uri('/css/login.css'), NULL, '1.1');
+}
+
+add_filter('login_headertitle', 'ourLoginTitle');
+
+function ourLoginTitle() {
+  return get_bloginfo('name');
+}

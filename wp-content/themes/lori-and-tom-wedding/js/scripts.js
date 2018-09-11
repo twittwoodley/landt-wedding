@@ -8,7 +8,7 @@ import lightbox from 'lightbox2';
 /*import GoogleMap from './modules/GoogleMap';*/
 /*import frontEndUpload from './modules/frontEndUpload';
 */
-
+import Header from './modules/Header';
 import Like from './modules/Like';
 import DeleteImage from './modules/DeleteImage';
 import UserQuestions from './modules/UserQuestions';
@@ -19,7 +19,7 @@ import GalleryLoadMore from './modules/GalleryLoadMore';
 
 /*var googleMap = new GoogleMap();*/
 /*var gallery = new frontEndUpload();*/
-
+var header = new Header();
 var deleteImage = new DeleteImage();
 var like = new Like();
 var userQuestions = new UserQuestions();
