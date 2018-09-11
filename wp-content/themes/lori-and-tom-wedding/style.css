@@ -936,6 +936,7 @@ nav li:hover img {
     text-align: center;
     box-shadow: 3px 3px 7px rgb(163, 163, 163);
     color: white;
+    margin: 20px;
 }
 
 #gallery-file-upload {
@@ -1365,6 +1366,38 @@ nav li:hover img {
 .reply-button-cont:hover .button-desc, .edit-button-cont:hover .button-desc, .delete-button-cont:hover .button-desc, .save-button-cont:hover .button-desc {
     display: flex;
     margin-left: -8px;
+}
+
+/*
+ * Song Styling
+*/
+
+.song-list-cont {
+	padding: 0;
+    margin: 0 30px;
+}
+
+.song-list-cont .fa-heart {
+	color: var(--primary-color);
+}
+
+.song-list-cont .like-count {
+	color: var(--primary-color);
+}
+
+.song-list-cont .like-box {
+    margin: 30px 0 30px 30px;;
+}
+
+.song-list-cont .song {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    border-bottom: 1px solid #ececec;
+}
+
+.song h4, .song h4 span {
+	font-weight: 400;
 }
 
 @media only screen and (max-width: 880px) {

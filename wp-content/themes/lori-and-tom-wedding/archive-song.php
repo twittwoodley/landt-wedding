@@ -7,9 +7,6 @@
 	<?php
     $songsWithLikes = array();
 
-    
-
-
 	while(have_posts()) {
 		the_post();
 		$songLike = new WP_Query(array(
@@ -35,9 +32,9 @@
     		return ($songsWithLikes[2] < $songsWithLikesB[2]) ? -1 : 1;
 		}
 		usort($songsWithLikes, "cmp");
-	print_r($songsWithLikes);
+	//print_r($songsWithLikes);
 ?>
-	<ul>
+	<ul class="song-list-cont">
 <?php
 	foreach($songsWithLikes as $song) {
 		$existStatus = 'no';
@@ -61,9 +58,9 @@
 					}
 
 	?>
-		<li>
-			<h2><?php echo $song[0]; ?> by <?php echo $song[1]; ?></h2>	
-			<div style="border:2px solid green;" class="like-box" data-like="<?php echo $existQuery->posts[0]->ID; ?>" data-photoID="<?php echo $song[3]; ?>" data-exists="<?php echo $existStatus ?>">
+		<li class="song">
+			<h4><?php echo $song[0]; ?> <span style="font-size: 0.5em">by</span> <?php echo $song[1]; ?></h4>	
+			<div class="like-box" data-like="<?php echo $existQuery->posts[0]->ID; ?>" data-photoID="<?php echo $song[3]; ?>" data-exists="<?php echo $existStatus ?>">
 				<i title="Like" class="far fa-heart heart-empty" aria-hidden="true"></i>
 				<i title="Unlike" class="fas fa-heart heart-filled" aria-hidden="true"></i>
 				<span class="like-count"><?php echo $song[2] ?></span>

@@ -17,6 +17,7 @@
     text-align: center;
     box-shadow: 3px 3px 7px rgb(163, 163, 163);
     color: white;
+    margin: 20px;
 }
 
 #gallery-file-upload {

@@ -7,6 +7,7 @@ class Like {
 
 	events() {
 		$(".gallery-container").on('click', ".like-box", this.clickDispatcher.bind(this));
+		$(".song-list-cont").on('click', ".like-box", this.clickDispatcher.bind(this));
 	}
 	//Methods
 
